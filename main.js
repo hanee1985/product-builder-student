@@ -1,4 +1,4 @@
-const lottoNumbersContainer = document.querySelector('.lotto-numbers');
+const lottoSetsContainer = document.querySelector('#lotto-sets');
 const generateBtn = document.querySelector('#generate');
 const themeToggleBtn = document.querySelector('#theme-toggle');
 
@@ -20,40 +20,64 @@ function updateThemeIcon(theme) {
     themeToggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
 }
 
-function generateLottoNumbers() {
-    lottoNumbersContainer.innerHTML = '';
+function generateLottoSet() {
     const numbers = new Set();
     while (numbers.size < 6) {
-        const randomNumber = Math.floor(Math.random() * 45) + 1;
-        numbers.add(randomNumber);
+        numbers.add(Math.floor(Math.random() * 45) + 1);
     }
-
     const sortedNumbers = Array.from(numbers).sort((a, b) => a - b);
+    
+    let bonusNumber;
+    do {
+        bonusNumber = Math.floor(Math.random() * 45) + 1;
+    } while (numbers.has(bonusNumber));
 
-    sortedNumbers.forEach(number => {
-        const numberElement = document.createElement('div');
-        numberElement.classList.add('lotto-number');
-        numberElement.textContent = number;
-        numberElement.style.backgroundColor = getNumberColor(number);
-        lottoNumbersContainer.appendChild(numberElement);
-    });
+    return { main: sortedNumbers, bonus: bonusNumber };
+}
+
+function createNumberElement(number, isBonus = false) {
+    const el = document.createElement('div');
+    el.classList.add('lotto-number');
+    if (isBonus) {
+        el.classList.add('bonus');
+        el.textContent = `+${number}`;
+    } else {
+        el.textContent = number;
+        el.style.backgroundColor = getNumberColor(number);
+    }
+    return el;
+}
+
+function renderLottoSets() {
+    lottoSetsContainer.innerHTML = '';
+    for (let i = 0; i < 5; i++) {
+        const set = generateLottoSet();
+        const row = document.createElement('div');
+        row.classList.add('lotto-row');
+
+        const mainGroup = document.createElement('div');
+        mainGroup.classList.add('numbers-group');
+        set.main.forEach(num => mainGroup.appendChild(createNumberElement(num)));
+
+        const bonusGroup = document.createElement('div');
+        bonusGroup.classList.add('bonus-group');
+        bonusGroup.appendChild(createNumberElement(set.bonus, true));
+
+        row.appendChild(mainGroup);
+        row.appendChild(bonusGroup);
+        lottoSetsContainer.appendChild(row);
+    }
 }
 
 function getNumberColor(number) {
-    if (number <= 10) {
-        return '#f9e45b'; // Yellow
-    } else if (number <= 20) {
-        return '#5b9ef9'; // Blue
-    } else if (number <= 30) {
-        return '#f95b5b'; // Red
-    } else if (number <= 40) {
-        return '#888888'; // Gray
-    } else {
-        return '#5bf975'; // Green
-    }
+    if (number <= 10) return '#f9e45b'; // Yellow
+    if (number <= 20) return '#5b9ef9'; // Blue
+    if (number <= 30) return '#f95b5b'; // Red
+    if (number <= 40) return '#888888'; // Gray
+    return '#5bf975'; // Green
 }
 
-generateBtn.addEventListener('click', generateLottoNumbers);
+generateBtn.addEventListener('click', renderLottoSets);
 
-// Generate initial numbers on page load
-generateLottoNumbers();
+// Initial load
+renderLottoSets();

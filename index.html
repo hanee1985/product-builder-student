@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
+    <title>Lotto Generator | Toss Style</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <button id="theme-toggle" class="theme-toggle" title="Toggle Dark/Light Mode">🌙</button>
-        <h1>Lotto Number Generator</h1>
-        <div class="lotto-numbers"></div>
-        <button id="generate">Generate Numbers</button>
+        <button id="theme-toggle" class="theme-toggle" title="Toggle Mode">🌙</button>
+        <h1>로또 번호 생성기</h1>
+        <p class="subtitle">행운의 번호 5세트를 확인해보세요</p>
+        <div id="lotto-sets" class="lotto-sets">
+            <!-- 5 sets will be generated here -->
+        </div>
+        <button id="generate">새로운 번호 생성하기</button>
     </div>
     <script src="main.js"></script>
 </body>

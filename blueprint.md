@@ -1,41 +1,30 @@
 
-# Lotto Number Generator
+# Lotto Number Generator (Toss Style)
 
 ## Overview
 
-A modern, simple Lotto Number Generator web application with interactive features and theme support. This project generates 6 unique random lottery numbers between 1 and 45, styled by range, and allows the user to switch between Light and Dark modes.
+A premium Lotto Number Generator inspired by the Toss UI. It generates 5 sets of unique lottery numbers, each including a bonus number marked with a `+` sign and distinct coloring. The application supports Light and Dark modes with a clean, modern interface.
 
 ## Features
 
-- **Random Number Generation:** Generates 6 unique numbers from 1 to 45.
-- **Sorting:** Numbers are displayed in ascending order.
-- **Color Coding:** Numbers are colored based on their range (1-10, 11-20, etc.).
-- **Theme Toggle:** Supports Dark Mode and Light Mode with persistence using `localStorage`.
-- **Responsive Design:** Works on various screen sizes.
-- **Clean UI:** Professional layout with smooth transitions.
+- **Multi-Set Generation:** Generates 5 sets of numbers simultaneously.
+- **Bonus Number:** Each set includes a 7th bonus number with a `+` prefix.
+- **Toss UI Aesthetic:** 
+  - Clean typography and card-based layout.
+  - Subtle shadows and rounded corners (24px).
+  - Responsive design with adaptive layouts for mobile.
+- **Color-Coded Numbers:** Main numbers colored by range; bonus numbers colored in red.
+- **Persistent Theme Toggle:** Independent button in the top-right corner to switch between Light and Dark modes.
 
-## Current Plan & Implementation
+## Implementation Details
 
-### Step 1: HTML Structure (`index.html`)
+### UI/UX (Toss Style)
+- **Backgrounds:** Light gray (`#f2f4f6`) for light mode, deep dark (`#101012`) for dark mode.
+- **Cards:** White or dark gray containers with 24px padding and 24px border-radius.
+- **Typography:** Uses system sans-serif fonts (Apple SD Gothic Neo, etc.) for a native look.
+- **Buttons:** Bold blue (`#0064ff`) buttons with smooth hover and active states.
 
-*   Set the title to "Lotto Number Generator".
-*   Create a main container for the application.
-*   Add a heading for the title.
-*   Add a theme toggle button (🌙/☀️).
-*   Add a container to display the generated lottery numbers.
-*   Add a button to trigger the number generation.
-
-### Step 2: Styling (`style.css`)
-
-*   Apply a clean and modern design using CSS variables for theming.
-*   Define a dark theme state (`[data-theme="dark"]`) for colors, backgrounds, and shadows.
-*   Style the main container, title, number display area, and the "Generate" button.
-*   Use a color-coded system to display the lottery numbers based on their value ranges.
-
-### Step 3: JavaScript Logic (`main.js`)
-
-*   Implement a function to generate 6 unique random numbers from 1 to 45.
-*   Attach an event listener to the "Generate" button to refresh numbers.
-*   Implement theme switching logic that toggles a data attribute on the `<html>` element.
-*   Persist the user's theme preference in `localStorage`.
-*   Initialize the page with the saved theme and a fresh set of numbers.
+### Logic Improvements
+- **`generateLottoSet`**: Generates 6 unique sorted numbers + 1 unique bonus number.
+- **`renderLottoSets`**: Clears the container and loops 5 times to create rows.
+- **Row Structure**: Split into `numbers-group` and `bonus-group` for visual separation.
