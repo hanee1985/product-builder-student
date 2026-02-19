@@ -258,28 +258,38 @@ h1 {
     gap: 20px;
 }
 
-.animal-start-btn {
+.file-upload-wrapper {
+    width: 100%;
+}
+
+#image-upload {
+    display: none;
+}
+
+.upload-btn {
+    display: block;
     width: 100%;
     padding: 16px;
     font-size: 16px;
     font-weight: 600;
     border-radius: 16px;
-    border: none;
     background-color: var(--button-bg);
     color: white;
     cursor: pointer;
+    text-align: center;
     transition: background-color 0.2s;
 }
 
-.animal-start-btn:hover {
+.upload-btn:hover {
     background-color: var(--button-hover);
 }
 
-#webcam-container canvas {
+#face-image {
+    width: 100%;
+    max-width: 300px;
     border-radius: 20px;
-    max-width: 100%;
-    height: auto;
     box-shadow: var(--card-shadow);
+    margin: 10px 0;
 }
 
 #label-container {
