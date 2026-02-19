@@ -2,7 +2,6 @@ const MODEL_PATH = "https://teachablemachine.withgoogle.com/models/I55N6h9vV/";
 
 let model, labelContainer, maxPredictions;
 
-// Load the model as soon as possible
 async function loadModel() {
     const modelURL = MODEL_PATH + "model.json";
     const metadataURL = MODEL_PATH + "metadata.json";
@@ -15,23 +14,35 @@ loadModel();
 function readURL(input) {
     if (input.files && input.files[0]) {
         const reader = new FileReader();
+        const loadingContainer = document.getElementById('loading-container');
+        const progressValue = document.querySelector('.analysis-progress-value');
+        const labelContainer = document.getElementById("label-container");
+        const faceImage = document.getElementById('face-image');
+
+        // Reset and Show Loading
+        labelContainer.innerHTML = '';
+        faceImage.style.display = 'none';
+        loadingContainer.style.display = 'block';
+        progressValue.classList.remove('animate-progress');
+        void progressValue.offsetWidth; // trigger reflow
+        progressValue.classList.add('animate-progress');
+
         reader.onload = function(e) {
-            const img = document.getElementById('face-image');
-            img.src = e.target.result;
-            img.style.display = 'block';
-            img.onload = async function() {
+            faceImage.src = e.target.result;
+            faceImage.style.display = 'block';
+            
+            // Wait for animation to finish (2s) before showing results
+            setTimeout(async () => {
                 await predict();
-            };
+                loadingContainer.style.display = 'none';
+            }, 2000);
         };
         reader.readAsDataURL(input.files[0]);
     }
 }
 
 async function predict() {
-    if (!model) {
-        alert("모델 로딩 중입니다. 잠시 후 다시 시도해주세요.");
-        return;
-    }
+    if (!model) return;
     const image = document.getElementById("face-image");
     const prediction = await model.predict(image);
     
@@ -63,6 +74,10 @@ async function predict() {
         
         const probability = (prediction[i].probability * 100).toFixed(0);
         labelText.innerHTML = `${className} (${probability}%)`;
-        barValue.style.width = probability + "%";
+        
+        // Minor delay for the final results to "pop" in
+        setTimeout(() => {
+            barValue.style.width = probability + "%";
+        }, 100);
     }
 }

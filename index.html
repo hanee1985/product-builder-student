@@ -30,6 +30,14 @@
                     <label for="image-upload" class="upload-btn">사진 선택하기</label>
                 </div>
                 <img id="face-image" src="#" alt="your image" style="display:none;" />
+                
+                <div id="loading-container" style="display:none; width: 100%; margin-top: 20px;">
+                    <p class="loading-text">AI가 당신의 관상을 분석 중입니다...</p>
+                    <div class="analysis-progress-bar">
+                        <div class="analysis-progress-value"></div>
+                    </div>
+                </div>
+
                 <div id="label-container"></div>
             </div>
         </section>
