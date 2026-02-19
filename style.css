@@ -228,6 +228,17 @@ h1 {
     background-color: var(--border-color);
 }
 
+.comment-section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+#disqus_thread {
+    margin-top: 16px;
+}
+
 @media (max-width: 400px) {
     .lotto-row {
         flex-direction: column;
