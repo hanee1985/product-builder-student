@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Generator | Toss Style</title>
+    <title>Lotto & Animal Face | Toss Style</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <button id="theme-toggle" class="theme-toggle" title="Toggle Mode">🌙</button>
-        <h1>로또 번호 생성기</h1>
-        <p class="subtitle">행운의 번호 5세트를 확인해보세요</p>
-        <div id="lotto-sets" class="lotto-sets">
-            <!-- 5 sets will be generated here -->
-        </div>
-        <button id="generate">새로운 번호 생성하기</button>
+        
+        <section class="lotto-section">
+            <h1>로또 번호 생성기</h1>
+            <p class="subtitle">행운의 번호 5세트를 확인해보세요</p>
+            <div id="lotto-sets" class="lotto-sets">
+                <!-- 5 sets will be generated here -->
+            </div>
+            <button id="generate">새로운 번호 생성하기</button>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="animal-section">
+            <h2>동물상 테스트</h2>
+            <p class="subtitle">나는 강아지상일까, 고양이상일까?</p>
+            <div class="animal-container">
+                <button type="button" class="animal-start-btn" onclick="init()">테스트 시작하기</button>
+                <div id="webcam-container"></div>
+                <div id="label-container"></div>
+            </div>
+        </section>
 
         <div class="divider"></div>
 
@@ -50,6 +65,10 @@
             <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         </section>
     </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script src="main.js"></script>
+    <script src="animal.js"></script>
 </body>
 </html>
