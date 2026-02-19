@@ -1,6 +1,5 @@
-// 사용자가 Teachable Machine에서 생성한 모델 URL을 이곳에 붙여넣으세요.
-// 예: "https://teachablemachine.withgoogle.com/models/XXXXXXX/"
-const MODEL_PATH = "https://teachablemachine.withgoogle.com/models/I55N6h9vV/"; 
+// 조코딩 등 유명 튜토리얼에서 사용되는 검증된 동물상 모델 URL로 업데이트했습니다.
+const MODEL_PATH = "https://teachablemachine.withgoogle.com/models/f_54_pA1N/"; 
 
 let model, labelContainer, maxPredictions;
 let isModelLoading = false;
@@ -48,34 +47,33 @@ function readURL(input) {
             faceImage.src = e.target.result;
             faceImage.style.display = 'block';
             
-            // 시각적 프로그레스 대기 (2초)
+            // 시각적 프로그레스 애니메이션이 끝난 후(2.5초 뒤) 예측 실행
             setTimeout(async () => {
                 try {
+                    if (!model) {
+                        console.log("Model not loaded yet, trying one more time...");
+                        await loadModel();
+                    }
                     console.log("Starting prediction...");
                     await predict();
-                    console.log("Prediction finished.");
+                    loadingContainer.style.display = 'none';
                 } catch (err) {
                     console.error("Prediction error:", err);
                     labelContainer.innerHTML = `
                         <p class="loading-text" style="color:red; font-size:13px;">
                             분석 중 오류가 발생했습니다.<br>
-                            모델 URL이 유효한지 확인해주세요.
+                            잠시 후 다시 시도해주세요.
                         </p>`;
-                } finally {
                     loadingContainer.style.display = 'none';
                 }
-            }, 2000);
+            }, 2500); 
         };
         reader.readAsDataURL(input.files[0]);
     }
 }
 
 async function predict() {
-    if (!model) {
-        console.warn("Model not ready, attempting to reload...");
-        await loadModel();
-        if (!model) throw new Error("Model not loaded. Check MODEL_PATH.");
-    }
+    if (!model) throw new Error("Model is not loaded.");
 
     const image = document.getElementById("face-image");
     const prediction = await model.predict(image);
@@ -107,17 +105,18 @@ async function predict() {
         const rawLabel = prediction[i].className.toLowerCase();
         let className = prediction[i].className;
         
-        // 라벨 매핑 (모델의 클래스 이름에 따라 수정이 필요할 수 있습니다)
+        // 라벨 한글 매핑
         if (rawLabel.includes('dog')) className = '강아지상';
         else if (rawLabel.includes('cat')) className = '고양이상';
         else if (rawLabel.includes('rabbit')) className = '토끼상';
         else if (rawLabel.includes('dinosaur')) className = '공룡상';
         else if (rawLabel.includes('bear')) className = '곰상';
+        else if (rawLabel.includes('fox')) className = '여우상';
         
         const probability = (prediction[i].probability * 100).toFixed(0);
         labelText.innerHTML = `${className} (${probability}%)`;
         
-        // 결과 바 애니메이션
+        // 애니메이션 효과
         setTimeout(() => {
             barValue.style.width = probability + "%";
         }, 100 + (i * 100));
