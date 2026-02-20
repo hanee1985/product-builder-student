@@ -17,6 +17,7 @@ A premium Lotto Number Generator inspired by the Toss UI. It generates 5 sets of
 - **Persistent Theme Toggle:** Independent button in the top-right corner to switch between Light and Dark modes.
 - **Partnership Inquiry Form:** Integrated Formspree form for business inquiries.
 - **Comment System:** Integrated Disqus for community feedback and discussion.
+- **Google AdSense:** Monetization via Google AdSense with account verification and `ads.txt`.
 
 ## Implementation Details
 
@@ -31,3 +32,11 @@ A premium Lotto Number Generator inspired by the Toss UI. It generates 5 sets of
 - **`generateLottoSet`**: Generates 6 unique sorted numbers + 1 unique bonus number.
 - **Formspree Integration**: Submits inquiry data to `https://formspree.io/f/xvzbqnrq`.
 - **Disqus Integration**: Loads the Disqus universal code via `https://productowner-1.disqus.com/embed.js`.
+- **Google AdSense Integration**: 
+    - Loads `adsbygoogle.js` with client ID `ca-pub-5417675697574913`.
+    - Includes account verification meta tag.
+    - `ads.txt` configured with `google.com, pub-5417675697574913, DIRECT, f08c47fec0942fa0`.
+
+## Current Task: Google AdSense Setup
+1. Update `index.html` to include the AdSense script and account verification meta tag in the `<head>`.
+2. Create `ads.txt` in the root directory with the provided verification details.
