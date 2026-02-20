@@ -18,11 +18,13 @@ A premium Lotto Number Generator inspired by the Toss UI. It generates 5 sets of
 - **Partnership Inquiry Form:** Integrated Formspree form for business inquiries.
 - **Comment System:** Integrated Disqus for community feedback and discussion.
 - **Google AdSense:** Monetization via Google AdSense with account verification and `ads.txt`.
-- **High-Quality Optimization (AdSense Ready):**
+- **Advanced SEO & Quality Optimization (AdSense Pass Focus):**
     - Semantic Navigation & Footer.
-    - Mandatory Legal Pages (Privacy Policy, Terms of Service).
-    - Educational Content (How it works, AI analysis explanation).
-    - Disclaimer & Safety Notices.
+    - Detailed Educational Content (Lottery Odds, AI Technology History).
+    - Mandatory Legal Pages (Privacy Policy with Cookie Clause, Terms of Service).
+    - SEO Assets: `robots.txt`, `sitemap.xml`.
+    - Rich Meta Tags (Open Graph, Description, Keywords).
+    - Accessibility (ARIA labels, semantic HTML).
 
 ## Implementation Details
 
@@ -42,11 +44,9 @@ A premium Lotto Number Generator inspired by the Toss UI. It generates 5 sets of
     - Includes account verification meta tag.
     - `ads.txt` configured with `google.com, pub-5417675697574913, DIRECT, f08c47fec0942fa0`.
 
-## Current Task: AdSense Optimization for High-Quality Site
-1.  **Header & Navigation:** Add a sticky/fixed header with links to Lotto, Animal Face, and Inquiry sections.
-2.  **Educational Content Sections:**
-    - Add "Lotto Winning Tips & Strategy" section.
-    - Add "AI Animal Face Recognition Technology" explanation section.
-3.  **Mandatory Legal Links:** Add Footer with Privacy Policy and Terms of Service (modal-based for ease of use).
-4.  **Disclaimer:** Add a clear disclaimer for lottery results.
-5.  **Refine Meta Tags:** Improve SEO metadata for better indexing.
+## Current Task: Advanced AdSense & SEO Optimization
+1.  **Content Expansion:** Add a "Deep Dive" section with 2 long-form articles (Lottery Probability and AI Face Tech) to ensure high textual value.
+2.  **Privacy Policy Update:** Ensure the Privacy Policy explicitly mentions Google AdSense and Third-Party Cookies.
+3.  **SEO Files:** Create `robots.txt` and `sitemap.xml`.
+4.  **Meta Enhancement:** Add Open Graph meta tags for better social sharing preview.
+5.  **A11Y Improvement:** Add ARIA labels to buttons and links.

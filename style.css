@@ -256,6 +256,29 @@ h1 {
     line-height: 1.5;
 }
 
+/* Deep Dive Section */
+.deep-dive-section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.deep-dive-section .subtitle {
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.article-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.article-box .info-box {
+    margin: 0;
+}
+
 .divider {
     height: 1px;
     background-color: var(--border-color);
