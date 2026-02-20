@@ -337,8 +337,36 @@ h1 {
 .food-card h3 {
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     color: var(--button-bg);
+}
+
+.food-carousel {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.food-carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+.carousel-track {
+    display: flex;
+    gap: 12px;
+    padding-bottom: 4px;
+}
+
+.carousel-track img {
+    width: 200px;
+    height: 150px;
+    object-fit: crop;
+    border-radius: 12px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .food-desc {
@@ -367,7 +395,12 @@ h1 {
     box-shadow: 0 2px 8px rgba(0,0,0,0.02);
 }
 
-.res-link:hover {
+.res-link.inactive {
+    cursor: default;
+    opacity: 0.8;
+}
+
+.res-link:not(.inactive):hover {
     background-color: var(--border-color);
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
