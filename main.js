@@ -3,13 +3,13 @@ const generateBtn = document.querySelector('#generate');
 const themeToggleBtn = document.querySelector('#theme-toggle');
 
 // Theme Logic
-const currentTheme = localStorage.getItem('theme') || 'light';
-document.documentElement.setAttribute('data-theme', currentTheme);
-updateThemeIcon(currentTheme);
+const initialTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', initialTheme);
+updateThemeIcon(initialTheme);
 
 themeToggleBtn.addEventListener('click', () => {
-    let theme = document.documentElement.getAttribute('data-theme');
-    let newTheme = theme === 'dark' ? 'light' : 'dark';
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
@@ -19,6 +19,52 @@ themeToggleBtn.addEventListener('click', () => {
 function updateThemeIcon(theme) {
     themeToggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
 }
+
+// Modal Logic
+window.openModal = function(type) {
+    const modal = document.getElementById(`${type}-modal`);
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scroll
+    }
+};
+
+window.closeModal = function(type) {
+    const modal = document.getElementById(`${type}-modal`);
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scroll
+    }
+};
+
+// Close modal when clicking outside content
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+};
+
+// Smooth Scroll Logic
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            const headerOffset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
 
 function generateLottoSet() {
     const numbers = new Set();

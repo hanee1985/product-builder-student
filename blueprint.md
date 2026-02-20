@@ -18,6 +18,11 @@ A premium Lotto Number Generator inspired by the Toss UI. It generates 5 sets of
 - **Partnership Inquiry Form:** Integrated Formspree form for business inquiries.
 - **Comment System:** Integrated Disqus for community feedback and discussion.
 - **Google AdSense:** Monetization via Google AdSense with account verification and `ads.txt`.
+- **High-Quality Optimization (AdSense Ready):**
+    - Semantic Navigation & Footer.
+    - Mandatory Legal Pages (Privacy Policy, Terms of Service).
+    - Educational Content (How it works, AI analysis explanation).
+    - Disclaimer & Safety Notices.
 
 ## Implementation Details
 
@@ -37,6 +42,11 @@ A premium Lotto Number Generator inspired by the Toss UI. It generates 5 sets of
     - Includes account verification meta tag.
     - `ads.txt` configured with `google.com, pub-5417675697574913, DIRECT, f08c47fec0942fa0`.
 
-## Current Task: Google AdSense Setup
-1. Update `index.html` to include the AdSense script and account verification meta tag in the `<head>`.
-2. Create `ads.txt` in the root directory with the provided verification details.
+## Current Task: AdSense Optimization for High-Quality Site
+1.  **Header & Navigation:** Add a sticky/fixed header with links to Lotto, Animal Face, and Inquiry sections.
+2.  **Educational Content Sections:**
+    - Add "Lotto Winning Tips & Strategy" section.
+    - Add "AI Animal Face Recognition Technology" explanation section.
+3.  **Mandatory Legal Links:** Add Footer with Privacy Policy and Terms of Service (modal-based for ease of use).
+4.  **Disclaimer:** Add a clear disclaimer for lottery results.
+5.  **Refine Meta Tags:** Improve SEO metadata for better indexing.
