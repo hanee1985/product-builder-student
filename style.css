@@ -341,23 +341,67 @@ h1 {
     color: var(--button-bg);
 }
 
+.carousel-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
 .food-carousel {
     width: 100%;
     overflow-x: auto;
-    margin-bottom: 20px;
     border-radius: 12px;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* IE and Edge */
+    scroll-behavior: smooth;
 }
 
 .food-carousel::-webkit-scrollbar {
     display: none; /* Chrome, Safari and Opera */
 }
 
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--container-bg);
+    color: var(--text-primary);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: background-color 0.2s, transform 0.2s, opacity 0.2s;
+    opacity: 0;
+}
+
+.carousel-container:hover .carousel-btn {
+    opacity: 1;
+}
+
+.carousel-btn:hover {
+    background-color: var(--bg-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev {
+    left: -18px;
+}
+
+.carousel-btn.next {
+    right: -18px;
+}
+
 .carousel-track {
     display: flex;
     gap: 12px;
-    padding-bottom: 4px;
+    padding: 4px 0;
 }
 
 .carousel-track img {

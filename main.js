@@ -63,6 +63,17 @@ window.closeModal = function(type) {
     }
 };
 
+// Carousel Logic
+window.scrollCarousel = function(btn, direction) {
+    const container = btn.parentElement;
+    const carousel = container.querySelector('.food-carousel');
+    const scrollAmount = carousel.offsetWidth * 0.8;
+    carousel.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+    });
+};
+
 // Close modal when clicking outside content
 window.onclick = function(event) {
     if (event.target.classList.contains('modal')) {
