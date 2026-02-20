@@ -1,6 +1,7 @@
 const lottoSetsContainer = document.querySelector('#lotto-sets');
 const generateBtn = document.querySelector('#generate');
 const themeToggleBtn = document.querySelector('#theme-toggle');
+const langSelect = document.querySelector('#lang-select');
 
 // Theme Logic
 const initialTheme = localStorage.getItem('theme') || 'light';
@@ -18,6 +19,31 @@ themeToggleBtn.addEventListener('click', () => {
 
 function updateThemeIcon(theme) {
     themeToggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+
+// i18n Logic
+const currentLang = localStorage.getItem('lang') || 'ko';
+langSelect.value = currentLang;
+applyTranslations(currentLang);
+
+langSelect.addEventListener('change', (e) => {
+    const lang = e.target.value;
+    localStorage.setItem('lang', lang);
+    applyTranslations(lang);
+});
+
+function applyTranslations(lang) {
+    const dict = translations[lang] || translations['en'];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = dict[key];
+            } else {
+                el.innerHTML = dict[key];
+            }
+        }
+    });
 }
 
 // Modal Logic

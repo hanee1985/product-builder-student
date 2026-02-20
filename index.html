@@ -30,62 +30,72 @@
         <div class="nav-container">
             <a href="#" class="logo" aria-label="럭키 랩 홈">LUCKY LAB</a>
             <nav role="navigation">
-                <a href="#lotto" aria-label="로또 번호 생성기 섹션으로 이동">로또생성</a>
-                <a href="#animal" aria-label="AI 동물상 테스트 섹션으로 이동">동물상</a>
-                <a href="#articles" aria-label="지식 정보 섹션으로 이동">지식창고</a>
-                <a href="#inquiry" aria-label="제휴 문의 섹션으로 이동">제휴문의</a>
-                <button id="theme-toggle" class="theme-toggle" title="테마 변경" aria-label="다크모드 및 라이트모드 전환">🌙</button>
+                <a href="#lotto" data-i18n="nav.lotto" aria-label="로또 번호 생성기 섹션으로 이동">로또생성</a>
+                <a href="#animal" data-i18n="nav.animal" aria-label="AI 동물상 테스트 섹션으로 이동">동물상</a>
+                <a href="#articles" data-i18n="nav.articles" aria-label="지식 정보 섹션으로 이동">지식창고</a>
+                <a href="#inquiry" data-i18n="nav.inquiry" aria-label="제휴 문의 섹션으로 이동">제휴문의</a>
+                <div class="header-controls">
+                    <select id="lang-select" class="lang-select" aria-label="언어 선택">
+                        <option value="ko">KO</option>
+                        <option value="en">EN</option>
+                        <option value="es">ES</option>
+                        <option value="fr">FR</option>
+                        <option value="zh">ZH</option>
+                        <option value="ja">JA</option>
+                    </select>
+                    <button id="theme-toggle" class="theme-toggle" title="테마 변경" aria-label="다크모드 및 라이트모드 전환">🌙</button>
+                </div>
             </nav>
         </div>
     </header>
 
     <div class="container" id="lotto">
         <section class="lotto-section">
-            <h1>로또 번호 생성기</h1>
-            <p class="subtitle">당신의 행운을 위한 5세트의 번호</p>
+            <h1 data-i18n="lotto.title">로또 번호 생성기</h1>
+            <p class="subtitle" data-i18n="lotto.subtitle">당신의 행운을 위한 5세트의 번호</p>
             
             <div class="info-box">
-                <h3>💡 로또 번호 생성 원리</h3>
-                <p>본 서비스는 최신 웹 표준 난수 발생 알고리즘(Crypto.getRandomValues)을 사용하여 1부터 45까지의 숫자 중 중복되지 않는 6개의 번호와 1개의 보너스 번호를 추출합니다. 이는 통계적 독립성을 보장하며, 이전 회차의 당첨 번호에 영향을 받지 않는 순수한 확률적 추출입니다.</p>
+                <h3 data-i18n="lotto.infoTitle">💡 로또 번호 생성 원리</h3>
+                <p data-i18n="lotto.infoText">본 서비스는 최신 웹 표준 난수 발생 알고리즘(Crypto.getRandomValues)을 사용하여 1부터 45까지의 숫자 중 중복되지 않는 6개의 번호와 1개의 보너스 번호를 추출합니다. 이는 통계적 독립성을 보장하며, 이전 회차의 당첨 번호에 영향을 받지 않는 순수한 확률적 추출입니다.</p>
                 <ul aria-label="로또 생성기 특징 리스트">
-                    <li>보안 수준의 난수 발생기(CSPRNG) 적용</li>
-                    <li>사용자 편의를 위한 5세트 동시 생성 시스템</li>
-                    <li>당첨 번호 대역별 직관적 컬러 시스템</li>
+                    <li data-i18n="lotto.feature1">보안 수준의 난수 발생기(CSPRNG) 적용</li>
+                    <li data-i18n="lotto.feature2">사용자 편의를 위한 5세트 동시 생성 시스템</li>
+                    <li data-i18n="lotto.feature3">당첨 번호 대역별 직관적 컬러 시스템</li>
                 </ul>
             </div>
 
             <div id="lotto-sets" class="lotto-sets" aria-live="polite">
                 <!-- 5 sets will be generated here -->
             </div>
-            <button id="generate" aria-label="새로운 행운의 번호 생성하기">새로운 번호 생성하기</button>
-            <p class="disclaimer">※ 본 번호 생성기는 오락 및 참고 목적으로만 제공되며, 실제 로또 당첨을 보장하지 않습니다. 복권 구매는 개인의 책임하에 건전하게 즐기시길 권장합니다.</p>
+            <button id="generate" data-i18n="lotto.generateBtn" aria-label="새로운 행운의 번호 생성하기">새로운 번호 생성하기</button>
+            <p class="disclaimer" data-i18n="lotto.disclaimer">※ 본 번호 생성기는 오락 및 참고 목적으로만 제공되며, 실제 로또 당첨을 보장하지 않습니다. 복권 구매는 개인의 책임하에 건전하게 즐기시길 권장합니다.</p>
         </section>
 
         <div class="divider"></div>
 
         <section class="animal-section" id="animal">
-            <h2>AI 동물상 테스트</h2>
-            <p class="subtitle">AI가 분석하는 당신의 매력적인 관상</p>
+            <h2 data-i18n="animal.title">AI 동물상 테스트</h2>
+            <p class="subtitle" data-i18n="animal.subtitle">AI가 분석하는 당신의 매력적인 관상</p>
             
             <div class="info-box">
-                <h3>🔍 분석 기술 안내</h3>
-                <p>본 서비스는 Google의 Teachable Machine Deep Learning 모델을 기반으로 구현되었습니다. 수천 장의 검증된 동물상 데이터셋(Dataset)을 학습한 Convolutional Neural Network(CNN) 알고리즘이 사용자의 안면 특징점을 추출하여 가장 유사한 동물상을 계산합니다.</p>
+                <h3 data-i18n="animal.infoTitle">🔍 분석 기술 안내</h3>
+                <p data-i18n="animal.infoText">본 서비스는 Google의 Teachable Machine Deep Learning 모델을 기반으로 구현되었습니다. 수천 장의 검증된 동물상 데이터셋(Dataset)을 학습한 Convolutional Neural Network(CNN) 알고리즘이 사용자의 안면 특징점을 추출하여 가장 유사한 동물상을 계산합니다.</p>
                 <ul aria-label="AI 테스트 특징 리스트">
-                    <li>실시간 온디바이스(On-device) AI 분석 방식</li>
-                    <li>사용자 사진은 서버로 전송되지 않는 프라이버시 보호 시스템</li>
-                    <li>0.1초 단위의 정밀한 확률 모델 예측</li>
+                    <li data-i18n="animal.feature1">실시간 온디바이스(On-device) AI 분석 방식</li>
+                    <li data-i18n="animal.feature2">사용자 사진은 서버로 전송되지 않는 프라이버시 보호 시스템</li>
+                    <li data-i18n="animal.feature3">0.1초 단위의 정밀한 확률 모델 예측</li>
                 </ul>
             </div>
 
             <div class="animal-container">
                 <div class="file-upload-wrapper">
                     <input type='file' id="image-upload" accept="image/*" onchange="readURL(this);" aria-label="분석할 사진 업로드" />
-                    <label for="image-upload" class="upload-btn">사진 선택하기</label>
+                    <label for="image-upload" class="upload-btn" data-i18n="animal.uploadBtn">사진 선택하기</label>
                 </div>
                 <img id="face-image" src="#" alt="사용자 업로드 사진" style="display:none;" />
                 
                 <div id="loading-container" style="display:none; width: 100%; margin-top: 20px;">
-                    <p class="loading-text">AI가 당신의 관상을 정밀 분석 중입니다...</p>
+                    <p class="loading-text" data-i18n="animal.loadingText">AI가 당신의 관상을 정밀 분석 중입니다...</p>
                     <div class="analysis-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
                         <div class="analysis-progress-value"></div>
                     </div>
@@ -98,17 +108,17 @@
         <div class="divider" id="articles"></div>
 
         <section class="deep-dive-section">
-            <h2>럭키 랩 지식창고</h2>
-            <p class="subtitle">기술과 확률에 대한 깊이 있는 이해</p>
+            <h2 data-i18n="articles.title">럭키 랩 지식창고</h2>
+            <p class="subtitle" data-i18n="articles.subtitle">기술과 확률에 대한 깊이 있는 이해</p>
             
             <div class="article-box">
                 <div class="info-box">
-                    <h3>📈 로또 1등 당첨 확률의 이해</h3>
-                    <p>로또 6/45의 1등 당첨 확률은 약 8,145,060분의 1입니다. 이는 45개의 숫자 중 6개를 순서 없이 뽑는 조합(Combination)의 결과입니다. 많은 분들이 '자주 나오는 번호'를 선호하지만, 확률론적으로 각 회차의 추첨은 '독립 시행'이므로 모든 조합의 당첨 확률은 매번 동일합니다. 럭키 랩은 이러한 수학적 원리에 충실하여 가장 공정한 난수를 제공합니다.</p>
+                    <h3 data-i18n="articles.lottoTitle">📈 로또 1등 당첨 확률의 이해</h3>
+                    <p data-i18n="articles.lottoText">로또 6/45의 1등 당첨 확률은 약 8,145,060분의 1입니다. 이는 45개의 숫자 중 6개를 순서 없이 뽑는 조합(Combination)의 결과입니다. 많은 분들이 '자주 나오는 번호'를 선호하지만, 확률론적으로 각 회차의 추첨은 '독립 시행'이므로 모든 조합의 당첨 확률은 매번 동일합니다. 럭키 랩은 이러한 수학적 원리에 충실하여 가장 공정한 난수를 제공합니다.</p>
                 </div>
                 <div class="info-box">
-                    <h3>🤖 AI 안면 인식의 현재와 미래</h3>
-                    <p>현대의 AI 안면 인식은 이미지의 픽셀 데이터를 수치화하여 패턴을 찾아내는 방식을 사용합니다. 럭키 랩의 동물상 테스트는 '분류(Classification)' 알고리즘을 사용하여 눈매, 콧날, 입꼬리 등의 특징값을 수천 명의 데이터와 비교합니다. 이러한 기술은 단순한 재미를 넘어 의료 진단, 보안 시스템 등 다양한 분야에서 혁신을 일으키고 있습니다.</p>
+                    <h3 data-i18n="articles.aiTitle">🤖 AI 안면 인식의 현재와 미래</h3>
+                    <p data-i18n="articles.aiText">현대의 AI 안면 인식은 이미지의 픽셀 데이터를 수치화하여 패턴을 찾아내는 방식을 사용합니다. 럭키 랩의 동물상 테스트는 '분류(Classification)' 알고리즘을 사용하여 눈매, 콧날, 입꼬리 등의 특징값을 수천 명의 데이터와 비교합니다. 이러한 기술은 단순한 재미를 넘어 의료 진단, 보안 시스템 등 다양한 분야에서 혁신을 일으키고 있습니다.</p>
                 </div>
             </div>
         </section>
@@ -116,25 +126,25 @@
         <div class="divider"></div>
 
         <section class="partnership-section" id="inquiry">
-            <h2>비즈니스 제휴 문의</h2>
-            <p class="subtitle">협업 및 제휴 제안을 기다립니다</p>
+            <h2 data-i18n="inquiry.title">비즈니스 제휴 문의</h2>
+            <p class="subtitle" data-i18n="inquiry.subtitle">협업 및 제휴 제안을 기다립니다</p>
             <form action="https://formspree.io/f/xvzbqnrq" method="POST" class="inquiry-form" role="form">
                 <div class="form-group">
-                    <label for="email">연락받을 이메일</label>
+                    <label for="email" data-i18n="inquiry.emailLabel">연락받을 이메일</label>
                     <input type="email" name="email" id="email" placeholder="example@luckylab.com" required aria-required="true">
                 </div>
                 <div class="form-group">
-                    <label for="message">문의 내용</label>
+                    <label for="message" data-i18n="inquiry.messageLabel">문의 내용</label>
                     <textarea name="message" id="message" rows="4" placeholder="제휴 내용이나 궁금하신 점을 상세히 적어주세요" required aria-required="true"></textarea>
                 </div>
-                <button type="submit" class="submit-btn" aria-label="제휴 문의 보내기">문의 내용 전달하기</button>
+                <button type="submit" class="submit-btn" data-i18n="inquiry.submitBtn" aria-label="제휴 문의 보내기">문의 내용 전달하기</button>
             </form>
         </section>
 
         <div class="divider"></div>
 
         <section class="comment-section">
-            <h2>커뮤니티 소통</h2>
+            <h2 data-i18n="comments.title">커뮤니티 소통</h2>
             <div id="disqus_thread"></div>
             <script>
                 (function() {
@@ -144,16 +154,16 @@
                 (d.head || d.body).appendChild(s);
                 })();
             </script>
-            <noscript>댓글을 보려면 자바스크립트를 활성화해주세요.</noscript>
+            <noscript data-i18n="comments.noscript">댓글을 보려면 자바스크립트를 활성화해주세요.</noscript>
         </section>
     </div>
 
     <footer role="contentinfo">
         <div class="footer-content">
             <div class="footer-links">
-                <a href="javascript:void(0)" onclick="openModal('privacy')" aria-label="개인정보처리방침 보기">개인정보처리방침</a>
-                <a href="javascript:void(0)" onclick="openModal('terms')" aria-label="이용약관 보기">이용약관</a>
-                <a href="#inquiry" aria-label="고객지원 문의하기">고객지원</a>
+                <a href="javascript:void(0)" onclick="openModal('privacy')" data-i18n="footer.privacy" aria-label="개인정보처리방침 보기">개인정보처리방침</a>
+                <a href="javascript:void(0)" onclick="openModal('terms')" data-i18n="footer.terms" aria-label="이용약관 보기">이용약관</a>
+                <a href="#inquiry" data-i18n="footer.support" aria-label="고객지원 문의하기">고객지원</a>
             </div>
             <p class="copyright">© 2026 LUCKY LAB. All Rights Reserved.</p>
         </div>
@@ -163,21 +173,21 @@
     <div id="privacy-modal" class="modal" role="dialog" aria-labelledby="privacy-title">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('privacy')" aria-label="모달 닫기">&times;</span>
-            <h2 id="privacy-title">개인정보처리방침</h2>
+            <h2 id="privacy-title" data-i18n="modal.privacyTitle">개인정보처리방침</h2>
             <div class="modal-body">
-                <p>본 서비스는 사용자의 개인정보를 매우 소중하게 생각하며, 관련 법규를 준수합니다.</p>
+                <p data-i18n="modal.privacyIntro">본 서비스는 사용자의 개인정보를 매우 소중하게 생각하며, 관련 법규를 준수합니다.</p>
                 <br>
-                <strong>1. 개인정보의 수집 및 이용</strong>
-                <p>- <strong>동물상 테스트:</strong> 테스트를 위해 사용자가 선택한 사진은 브라우저 내 로컬 환경에서 AI 분석 후 즉시 소멸됩니다. 서버로 전송되거나 저장되지 않습니다.</p>
-                <p>- <strong>제휴 문의:</strong> 이메일 주소는 문의 사항에 대한 답변 목적을 위해서만 수집 및 이용됩니다.</p>
+                <strong data-i18n="modal.privacySection1Title">1. 개인정보의 수집 및 이용</strong>
+                <p data-i18n="modal.privacySection1Body1">- <strong>동물상 테스트:</strong> 테스트를 위해 사용자가 선택한 사진은 브라우저 내 로컬 환경에서 AI 분석 후 즉시 소멸됩니다. 서버로 전송되거나 저장되지 않습니다.</p>
+                <p data-i18n="modal.privacySection1Body2">- <strong>제휴 문의:</strong> 이메일 주소는 문의 사항에 대한 답변 목적을 위해서만 수집 및 이용됩니다.</p>
                 <br>
-                <strong>2. 쿠키(Cookie) 및 제3자 광고 시스템</strong>
-                <p>- 본 사이트는 사용자의 서비스 이용 경험 개선 및 통계 분석을 위해 쿠키를 사용합니다.</p>
-                <p>- <strong>Google AdSense:</strong> 본 사이트는 Google에서 제공하는 광고 서비스를 이용합니다. Google은 사용자가 이 사이트 또는 다른 사이트를 방문한 정보를 바탕으로 사용자에게 맞춤 광고를 제공하기 위해 쿠키를 사용합니다.</p>
-                <p>- 사용자는 <a href="https://adssettings.google.com" target="_blank">Google 광고 설정</a>을 통해 맞춤 광고를 해제할 수 있습니다.</p>
+                <strong data-i18n="modal.privacySection2Title">2. 쿠키(Cookie) 및 제3자 광고 시스템</strong>
+                <p data-i18n="modal.privacySection2Body1">- 본 사이트는 사용자의 서비스 이용 경험 개선 및 통계 분석을 위해 쿠키를 사용합니다.</p>
+                <p data-i18n="modal.privacySection2Body2">- <strong>Google AdSense:</strong> 본 사이트는 Google에서 제공하는 광고 서비스를 이용합니다. Google은 사용자가 이 사이트 또는 다른 사이트를 방문한 정보를 바탕으로 사용자에게 맞춤 광고를 제공하기 위해 쿠키를 사용합니다.</p>
+                <p data-i18n="modal.privacySection2Body3">- 사용자는 <a href="https://adssettings.google.com" target="_blank">Google 광고 설정</a>을 통해 맞춤 광고를 해제할 수 있습니다.</p>
                 <br>
-                <strong>3. 개인정보의 보유 및 파기</strong>
-                <p>- 수집된 문의 메일 정보는 목적 달성 후 지체 없이 파기됩니다.</p>
+                <strong data-i18n="modal.privacySection3Title">3. 개인정보의 보유 및 파기</strong>
+                <p data-i18n="modal.privacySection3Body">- 수집된 문의 메일 정보는 목적 달성 후 지체 없이 파기됩니다.</p>
             </div>
         </div>
     </div>
@@ -185,24 +195,25 @@
     <div id="terms-modal" class="modal" role="dialog" aria-labelledby="terms-title">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('terms')" aria-label="모달 닫기">&times;</span>
-            <h2 id="terms-title">이용약관</h2>
+            <h2 id="terms-title" data-i18n="modal.termsTitle">이용약관</h2>
             <div class="modal-body">
-                <p>LUCKY LAB 서비스 이용에 감사드립니다.</p>
+                <p data-i18n="modal.termsIntro">LUCKY LAB 서비스 이용에 감사드립니다.</p>
                 <br>
-                <strong>제1조 (목적)</strong>
-                <p>본 약관은 본 사이트가 제공하는 서비스의 이용 조건 및 절차에 관한 사항을 규정함을 목적으로 합니다.</p>
+                <strong data-i18n="modal.termsSection1Title">제1조 (목적)</strong>
+                <p data-i18n="modal.termsSection1Body">본 약관은 본 사이트가 제공하는 서비스의 이용 조건 및 절차에 관한 사항을 규정함을 목적으로 합니다.</p>
                 <br>
-                <strong>제2조 (서비스의 유효성)</strong>
-                <p>제공되는 로또 번호 생성 결과는 과학적 당첨 보장이 아닌 확률적 유희를 위한 것이며, AI 분석 결과 역시 오락적 참고 지표로만 활용되어야 합니다.</p>
+                <strong data-i18n="modal.termsSection2Title">제2조 (서비스의 유효성)</strong>
+                <p data-i18n="modal.termsSection2Body">제공되는 로또 번호 생성 결과는 과학적 당첨 보장이 아닌 확률적 유희를 위한 것이며, AI 분석 결과 역시 오락적 참고 지표로만 활용되어야 합니다.</p>
                 <br>
-                <strong>제3조 (책임 소재)</strong>
-                <p>서비스 이용을 통한 결과(복권 구매 등)에 대한 모든 책임은 이용자 본인에게 있으며, 럭키 랩은 어떠한 직접적/간접적 손실에 대해서도 책임을 지지 않습니다.</p>
+                <strong data-i18n="modal.termsSection3Title">제3조 (책임 소재)</strong>
+                <p data-i18n="modal.termsSection3Body">서비스 이용을 통한 결과(복권 구매 등)에 대한 모든 책임은 이용자 본인에게 있으며, 럭키 랩은 어떠한 직접적/간접적 손실에 대해서도 책임을 지지 않습니다.</p>
             </div>
         </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="translations.js"></script>
     <script src="main.js"></script>
     <script src="animal.js"></script>
 </body>
